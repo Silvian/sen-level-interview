@@ -128,3 +128,9 @@ run the migrations and load data command inside docker as following:
 6. Login to the django administration page at: http://localhost:8000/admin/ with the credentials above to verify this.
 
 *Note:* you can login with the default user created here or create other users via django admin panel.
+
+
+### Assumptions:
+
+1. From analysing the created data file I have assumed that ```server-ip, username, full-name and login-time```
+are mandatory fields. Therefore a unique entry is composed of these 4 fields together.
