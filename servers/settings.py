@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
+from __future__ import absolute_import
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -36,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_celery_results',
     # Application specific apps
     'monitoring',
 ]
@@ -126,6 +128,21 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Celery Configurations
+# Celery & Broker settings
+
+CELERY_BROKER_URL = "amqp://admin:mypass@rabbitmq"
+CELERY_RESULTS_BACKEND = "amqp://admin:mypass@rabbitmq"
+
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'Europe/London'
+
+# Django celery results configurations
+CELERY_RESULT_BACKEND = 'django-db'
+
 
 # Default user configurations
 
