@@ -134,3 +134,8 @@ run the migrations and load data command inside docker as following:
 
 1. From analysing the created data file I have assumed that ```server-ip, username, full-name and login-time```
 are mandatory fields. Therefore a unique entry is composed of these 4 fields together.
+
+2. Created two separate fields for contact; one for number and one for email. The reason being, this is quite useful if
+we need to email the user automatically. We would want to know that we have a dedicated email field even if nullable.
+
+3. Invalid dates such as 17/19/06 do not make sense in any date format and will be defaulted to unix start time.
