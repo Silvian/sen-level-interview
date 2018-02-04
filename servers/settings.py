@@ -10,7 +10,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
-from __future__ import absolute_import
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -32,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django_celery_results',
     # Application specific apps
     'monitoring',
+    'servers',
 ]
 
 MIDDLEWARE = [
