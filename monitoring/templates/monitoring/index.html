@@ -2,6 +2,13 @@
 
 {% block body %}
 
-    <h1>Hello World!</h1>
+    <h4>Please upload a CSV file: </h4>
+    <br/>
+    <form method="POST" class="post-form" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-success">Submit</button>
+    </form>
+
 
 {% endblock %}
