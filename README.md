@@ -116,6 +116,8 @@ to run in a docker environment.
 
 `CELERY_BROKER_URL=amqp://admin:mypass@rabbitmq`
 
+Also don't forget to create a /static/media/upload folder in project base.
+
 3. Inside the project base directory where docker-compose.yml file can be found, run the following commands:
 #### docker-compose up --build
 
