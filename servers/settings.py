@@ -75,6 +75,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'servers.wsgi.application'
 
+# Local and static files configurations
+
+STATIC_ROOT = BASE_DIR + '/static'
+MEDIA_ROOT = BASE_DIR + '/static/media'
+
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
@@ -131,6 +136,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+MEDIA_URL = '/media/'
 
 # Celery Configurations
 # Celery & Broker settings

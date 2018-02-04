@@ -84,6 +84,9 @@ celerybeat-schedule
 # dotenv
 .env
 
+# file uploads
+static/media/upload/
+
 # virtualenv
 .venv
 venv/
