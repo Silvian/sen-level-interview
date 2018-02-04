@@ -36,6 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Application specific apps
+    'monitoring',
 ]
 
 MIDDLEWARE = [
@@ -78,6 +80,13 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+if 'DATABASE_HOST' in os.environ:
+    DATABASES['default']['HOST'] = os.getenv('DATABASE_HOST')
+    DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql_psycopg2'
+    DATABASES['default']['NAME'] = os.getenv('DATABASE_NAME')
+    DATABASES['default']['USER'] = os.getenv('DATABASE_USER')
+    DATABASES['default']['PASSWORD'] = os.getenv('DATABASE_PASSWORD')
 
 
 # Password validation
