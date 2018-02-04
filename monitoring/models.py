@@ -3,6 +3,7 @@ from time import time
 
 from django.db import models
 from django.utils import timezone
+from .tasks import process_csv_task
 
 
 def get_upload_file_name(instance, filename):
@@ -12,12 +13,22 @@ def get_upload_file_name(instance, filename):
 
 class CSVUpload(models.Model):
     """CSV Upload object model class."""
+
     csv = models.FileField(
         upload_to=get_upload_file_name,
     )
     date = models.DateTimeField(
         default=timezone.now
     )
+
+    def process_upload_file(self):
+        """Process upload file task"""
+        process_csv_task.delay(self.pk)
+
+    def save(self, *args, **kwargs):
+        """Override the save method to process task."""
+        super(CSVUpload, self).save(*args, **kwargs)
+        self.process_upload_file()
 
     def publish(self):
         """Call save method."""
